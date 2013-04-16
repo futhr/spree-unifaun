@@ -1,0 +1,5 @@
+---
+en:
+  spree:
+    spree_unifaun:
+      transport_label: "Transport label"

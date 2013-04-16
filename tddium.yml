@@ -1,0 +1,123 @@
+:tddium:
+  :ruby_version: ruby-1.9.3-p385
+  :hooks:
+    :worker: bundle exec rake db:setup          # Runs once for each worker to do, e.g., database setup
+    :post_build: bundle exec rake heroku:deploy # Runs once after entire build completes
+  :test_pattern:
+    - spec/**_spec.rb
+  :tests:
+    - bundle exec rake
+
+# tddium.yml
+#---
+#:tddium:
+#  :ruby_version: ruby-1.9.3-p194           # IMPORTANT: set ruby version to use
+#
+#  :hooks:
+#    :pre:                                  # Runs before database setup
+#    :worker:                               # Runs once for each worker to do, e.g., database setup
+#    :post:                                 # Runs once after worker hook before tests
+#    :post_worker:                          # Runs after a worker is done
+#    :post_build:                           # Runs once on master after entire build completes
+#
+#  :test_pattern:                           # IMPORTANT: You can specify ruby-style glob matching
+#    - spec/**_spec.rb                      #            for tests to run
+#
+#  :tests:
+#    - :type: ruby-testunit                  # Run all Ruby Test::Unit tests in single batch (slower than default)
+#      :mode: basic
+#    - :type: custom                         # Guard-jasmine Javascript test runner
+#      :command: bundle exec guard-jasmine --server-timeout=90 -t 30000
+#      :invocation: single
+#      :output: exit-status
+#    - :type: custom                         # Jasmine javascript test runner
+#      :command: bundle exec rake jasmine:ci
+#      :invocation: single
+#      :output: exit-status
+#    - :type: custom                         # Python nose tests
+#      :command: nosetests
+#      :invocation: single
+#      :output: exit-status
+#
+#  :timeout: 900                            # timeout for each test or command
+#  :timeout_hook: 90                        # timeout for each setup/post-build hook
+#
+#  :environment:                            # Environment variables to set when services & tests run
+#    TZ: GMT                                # Set time zone
+#    RAILS_LOG_LEVEL: '2'                   # Default is 4; 0-3 are more verbose
+#    LOCALE: en_US                          # Set locale for tests
+#    LC_CTYPE: en_US.UTF-8                  # Set LC_TYPE for tests
+##  :user_environment:                      # Environment variables to set only when tests run
+##    LD_PRELOAD: vendor/ext/lib/lib/libmemcached.so
+#  :rake:
+#    :rails_env: test                       # Set ruby RAILS_ENV, PADRINO_ENV, etc. for startup hooks
+#
+#  :isolate:                                # tests matching isolate pattern don't run in a batch
+#  - test/unit/test_that_needs_isolation.rb
+#  :serialize:                              # tests matching serialize pattern don't run in parallel
+#  - spec/requests/**_spec.rb
+#
+#  ##### Background Service Configuration #####
+#
+#  :postgresql:                             # Postgres configuration
+#    :version: '9.2'                        # Version (8.4, 9.0, 9.1, 9.2)
+#    :adapter: postresql                    # Ruby adapter (postgresql, postgis, etc.)
+#    :config:                               # Inject ruby/rails database.yml options
+#      pool: 5
+##    :config:
+##      postgis_extension: true
+##      encoding: unicode
+##      pool: 5
+#  :mysql:                                  # Configure MySQL
+#    :adapter: mysql2                       # Database adapter for ruby (optional)
+#    :version: '5.5'                        # MySQL version
+#    :config:                               # Inject ruby/rails config/database.yml options
+#      reconnect: false
+#      encoding: utf8
+#    :shards: 3                             # (Experts!) number of database instances
+#  :sqlite: false                           # Turn off sqlite
+#  :mongodb:
+#    :version: '2.0'
+#    :append:                               # append directly to mongo configuration
+#      persist_in_safe_mode: true
+#      allow_dynamic_fields: false
+#      logger: false
+#    :config:
+#      raise_not_found_error: false
+#      allow_dynamic_fields: false
+#  :elasticsearch:
+#    :version: '0.19'
+#    :plugins:                              # Configure/enable plugin
+#    - elasticsearch/elasticsearch-analysis-phonetic/1.2.0
+#  :solr:
+#    :version: 3.6.0
+#  :sphinx:
+#    :version: 2.0                  # run sphinx 2.0
+#    #:managed: false
+#  :phantomjs:
+#    :version: 1.8.1
+#  :tool_config:
+#    :qt:
+#      :version: 4.8.3
+#  :headless: true                  # Enable headless X11
+#  :selenium: false                 # Disable Selenium RC (not Selenium 2)
+#  :selenium2: false                # Disable Selenium 2
+#  :firefox: '13.0'                 # Select a supported firefox version as the default
+#  :custom_service:                 # Run a custom back-group service
+#    :command: bin/api              # Path relative to repo root to script
+#    :parallel: true                # Run one instance per worker (vs one per VM)?
+#    :ping: true                    # Wait for service to respond before continuing?
+#
+#  :coverage:                       # Beta feature
+#    :ratchet: 96
+#  :attachments:
+#    db/geo/GeoLiteCity.dat:
+#      :url: https://solano-labs.s3.amazonaws.com/xv/GeoLiteCity.dat
+#      :hash: 2cae5b16ad50bd26b795f22bb30620d829648142
+#  :boot_hook: bin/tddium-boot.rb
+#  :repo_prune:
+#    - Gemfile.lock
+#  :ruby:
+#    :hooks:
+#      :cucumber: false             # Disable reporting/pretty-printing extensions
+#      :rspec: false                # Disable reporting/pretty-printing extensions

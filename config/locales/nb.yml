@@ -1,0 +1,5 @@
+---
+nb:
+  spree:
+    spree_unifaun:
+      transport_label: "Transportetikett"
