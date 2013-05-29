@@ -4,7 +4,6 @@
 
 [![Build Status](https://secure.travis-ci.org/futhr/spree-unifaun.png?branch=master)](http://travis-ci.org/futhr/spree-unifaun)
 [![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
-[![Code Quality](https://codeclimate.com/futhr/spree-unifaun.png)](https://codeclimate.com/github/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 
 ## Features
