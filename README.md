@@ -1,13 +1,11 @@
-![Unifaun Logo](https://raw.github.com/hydrogarden/spree-unifaun/master/unifaun.png)
+![Unifaun Logo](https://raw.github.com/futhr/spree-unifaun/master/unifaun.png)
 
 # Spree Unifaun Packsoft ERPConnect
 
-[![Build Status](https://secure.travis-ci.org/hydrogarden/spree-unifaun.png?branch=master)](http://travis-ci.org/hydrogarden/hydrogarden)
-[![Dependency Status](https://gemnasium.com/hydrogarden/spree-unifaun.png)](https://gemnasium.com/hydrogarden/spree-unifaun)
-[![Code Quality](https://codeclimate.com/hydrogarden/spree-unifaun.png)](https://codeclimate.com/github/hydrogarden/spree-unifaun)
-[![Coverage Status](https://coveralls.io/repos/hydrogarden/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/hydrogarden/spree-unifaun)
-
-**Note: Above build statuses do not work yet because their private paymentplans has not been activated.**
+[![Build Status](https://secure.travis-ci.org/futhr/spree-unifaun.png?branch=master)](http://travis-ci.org/futhr/spree-unifaun)
+[![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
+[![Code Quality](https://codeclimate.com/futhr/spree-unifaun.png)](https://codeclimate.com/github/futhr/spree-unifaun)
+[![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 
 ## Features
 
@@ -48,11 +46,11 @@ Contact [Unifaun](http://en.unifaun.se) to learn more about their integrated ser
 ## Dependencies
 
 * [Spree Commerce](https://github.com/spree/spree)
-* [Spree i18n](https://github.com/futhr/spree_i18n)
-* [Hydrogarden](https://github.com/hydrogarden/hydrogarden)
-* [Spree Hydrogarden Theme](https://github.com/hydrogarden/spree-hydrogarden-theme)
+* [Spree i18n](https://github.com/spree/spree_i18n)
 
 ## Installation
+
+**Spree 2.0.x**
 
 * Add `gem 'spree_unifaun', github: 'hydrogarden/spree_unifaun'` to your Gemfile
 * Run `bundle`
