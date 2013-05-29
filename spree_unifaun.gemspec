@@ -15,19 +15,22 @@ Gem::Specification.new do |s|
   s.author       = 'Tobias Bohwalli'
   s.email        = 'hi@futhr.io'
   s.homepage     = 'https://github.com/hydrogarden/spree-unifaun'
+  s.license      = 'BSD'
 
   s.files        = `git ls-files`.split("\n")
   s.test_files   = `git ls-files -- spec/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '~> 2.0.0.beta'
+  spree_version = '~> 2.0.0'
   s.add_runtime_dependency 'spree_core', spree_version
   s.add_runtime_dependency 'spree_frontend', spree_version
   s.add_runtime_dependency 'spree_backend', spree_version
   s.add_runtime_dependency 'spree_api', spree_version
 
   s.add_development_dependency 'spree_auth_devise'
+  s.add_development_dependency 'vcr', '~> 2.4'
+  s.add_development_dependency 'fakeweb'
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'factory_girl', '~> 4.2'
   s.add_development_dependency 'ffaker'
@@ -38,6 +41,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers', '~> 2.0'
   s.add_development_dependency 'i18n-spec', '~> 0.4.0'
   s.add_development_dependency 'fuubar', '>= 0.0.1'
-  s.add_development_dependency 'launchy', '~> 2.2'
   s.add_development_dependency 'pry'
 end
