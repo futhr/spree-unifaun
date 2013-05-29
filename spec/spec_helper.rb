@@ -1,15 +1,18 @@
-require 'simplecov'
-require 'coveralls'
-Coveralls.wear!('rails')
-
-SimpleCov.start do
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Mailers', 'app/mailers'
-  add_group 'Models', 'app/models'
-  add_group 'Overrides', 'app/overrides'
-  add_group 'Views', 'app/views'
-  add_group 'Libraries', 'lib'
+if ENV["COVERAGE"]
+  require 'simplecov'
+  require 'coveralls'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start do
+    add_filter '/spec/'
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Overrides', 'app/overrides'
+    add_group 'Models', 'app/models'
+    add_group 'Views', 'app/views'
+    add_group 'Libraries', 'lib'
+  end
 end
 
 ENV['RAILS_ENV'] = 'test'
@@ -17,6 +20,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'ffaker'
 # require 'database_cleaner'
 
