@@ -6,6 +6,8 @@
 [![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 
+**THIS PROJECT IS WIP**
+
 ## Features
 
 ### Unifaun ERPConnect – XML Posting
@@ -42,16 +44,9 @@ This service enables you to automatically, via the e-shop, send an email with a 
 
 Contact [Unifaun](http://en.unifaun.se) to learn more about their integrated services and what it takes to get them up and running.
 
-## Dependencies
-
-* [Spree Commerce](https://github.com/spree/spree)
-* [Spree i18n](https://github.com/spree/spree_i18n)
-
 ## Installation
 
-**Spree 2.0.x**
-
-* Add `gem 'spree_unifaun', github: 'hydrogarden/spree_unifaun'` to your Gemfile
+* Add `gem 'spree_unifaun', github: 'futhr/spree_unifaun'` to your Gemfile
 * Run `bundle`
 * Run `rails g spree_unifaun:install`
 * Run `rake db:migrate`
@@ -59,13 +54,11 @@ Contact [Unifaun](http://en.unifaun.se) to learn more about their integrated ser
 ## Contributing
 
 * Fork the repo
-* Clone your repo `git clone git@github.com:mrhelpful/spree-unifaun.git`
-* Create branch for your pull request `git checkout -b fix-something`
+* Clone your repo
 * Run `bundle`
-* Run `bundle exec rake test_app` to create the test application in `spec/dummy`
-* Make your changes
+* Run `bundle exec rake test_app` to create the test application in `spec/test_app`
+* Make your changes and follow this [Style Guide](https://github.com/thoughtbot/guides)
 * Ensure specs pass by running `bundle exec rake`
-* Make sure yor changes has test coverage `open coverage/index.html`
 * Submit your pull request
 
-Copyright (c) 2013 Tobias Bohwalli, released under the New BSD License
+Copyright (c) 2013 Tobias Bohwalli, released under the [New BSD License](https://github.com/futhr/spree-unifaun/blob/master/LICENSE)
