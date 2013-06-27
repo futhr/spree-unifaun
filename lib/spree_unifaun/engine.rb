@@ -1,3 +1,11 @@
+module Spree
+  module Unifaun
+    def self.config(&block)
+      yield(Spree::GoogleBase::Config)
+    end
+  end
+end
+
 module SpreeUnifaun
   class Engine < Rails::Engine
     require 'spree/core'
@@ -8,6 +16,10 @@ module SpreeUnifaun
 
     config.generators do |g|
       g.test_framework :rspec
+    end
+
+    initializer 'spree.unifaun.environment', before: :load_config_initializers do |app|
+      Spree::Unifaun::Config = Spree::UnifaunConfiguration.new
     end
 
     def self.activate
