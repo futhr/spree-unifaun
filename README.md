@@ -6,8 +6,6 @@
 [![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 
-**THIS PROJECT IS WIP**
-
 ## Features
 
 ### Unifaun ERPConnect – XML Posting
@@ -42,23 +40,44 @@ This service enables you to automatically, via the e-shop, send an email with a 
 
 *Unifaun OneDoc* is the service that enables the user to print out transport labels as an integrated document. You can print dispatch and return labels in combination with invoices or packing slips, as well as return instructions, advertising messages or other information. The document is printed out on a laser printer with a duplex function to print on both the front and back sides.
 
-Contact [Unifaun](http://en.unifaun.se) to learn more about their integrated services and what it takes to get them up and running.
+Contact [Unifaun][1] to learn more about their integrated services and what it takes to get them up and running.
 
 ## Installation
 
-* Add `gem 'spree_unifaun', github: 'futhr/spree_unifaun'` to your Gemfile
+* Add `gem 'spree_unifaun', github: 'futhr/spree-unifaun'` to your Gemfile
 * Run `bundle`
 * Run `rails g spree_unifaun:install`
 * Run `rake db:migrate`
 
 ## Contributing
 
+In the spirit of [free software][2], **everyone** is encouraged to help improve this project.
+
+Here are some ways *you* can contribute:
+
+* by using prerelease versions
+* by reporting [bugs][3]
+* by suggesting new features
+* by writing or editing documentation
+* by writing specifications
+* by writing code (*no patch is too small*: fix typos, add comments, clean up inconsistent whitespace)
+* by refactoring code
+* by resolving [issues][3]
+* by reviewing patches
+
+Starting point:
+
 * Fork the repo
 * Clone your repo
 * Run `bundle`
 * Run `bundle exec rake test_app` to create the test application in `spec/test_app`
-* Make your changes and follow this [Style Guide](https://github.com/thoughtbot/guides)
-* Ensure specs pass by running `bundle exec rake`
+* Make your changes
+* Ensure specs pass by running `bundle exec rspec spec`
 * Submit your pull request
 
-Copyright (c) 2013 Tobias Bohwalli, released under the [New BSD License](https://github.com/futhr/spree-unifaun/blob/master/LICENSE)
+Copyright (c) 2013 Tobias Bohwalli, released under the [New BSD License][4]
+
+[1]: http://en.unifaun.se
+[2]: http://www.fsf.org/licensing/essays/free-sw.html
+[3]: https://github.com/futhr/spree-unifaun/issues
+[4]: https://github.com/futhr/spree-unifaun/tree/master/LICENSE
