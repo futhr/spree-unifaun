@@ -1,4 +1,4 @@
-if ENV["COVERAGE"]
+if ENV['COVERAGE']
   require 'simplecov'
   require 'coveralls'
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
@@ -17,12 +17,14 @@ end
 
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/webkit'
+require 'webmock/rspec'
 require 'ffaker'
-# require 'database_cleaner'
+require 'database_cleaner'
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
@@ -31,25 +33,32 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
 
+FactoryGirl.find_definitions
+
 RSpec.configure do |config|
   config.include Capybara::DSL, type: :request
+  config.include Spree::TestingSupport::ControllerRequests
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
 
+  config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :feature
+
   config.mock_with :rspec
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.fail_fast = ENV['FAIL_FAST'] || false
 
-  # config.before do
-  #   if example.metadata[:js]
-  #     DatabaseCleaner.strategy = :truncation
-  #   else
-  #     DatabaseCleaner.strategy = :transaction
-  #   end
-  #   DatabaseCleaner.start
-  # end
+  config.before do
+    if example.metadata[:js]
+      DatabaseCleaner.strategy = :truncation
+    else
+      DatabaseCleaner.strategy = :transaction
+    end
+    DatabaseCleaner.start
+  end
 
-  # config.after do
-  #   DatabaseCleaner.clean
-  # end
+  config.after do
+    DatabaseCleaner.clean
+  end
+
+  Capybara.javascript_driver = :webkit
 end
