@@ -51,9 +51,9 @@ gem 'spree_unifaun', github: 'futhr/spree-unifaun'
 
 Run
 
-  bundle install
-  rails g spree_unifaun:install
-  rake db:migrate
+    bundle install
+    rails g spree_unifaun:install
+    rake db:migrate
 
 ## Contributing
 
