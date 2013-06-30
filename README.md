@@ -44,10 +44,16 @@ Contact [Unifaun][1] to learn more about their integrated services and what it t
 
 ## Installation
 
-* Add `gem 'spree_unifaun', github: 'futhr/spree-unifaun'` to your Gemfile
-* Run `bundle`
-* Run `rails g spree_unifaun:install`
-* Run `rake db:migrate`
+Add to your `Gemfile`:
+```ruby
+gem 'spree_unifaun', github: 'futhr/spree-unifaun'
+```
+
+Run
+
+  bundle install
+  rails g spree_unifaun:install
+  rake db:migrate
 
 ## Contributing
 
@@ -83,3 +89,4 @@ Copyright (c) 2013 Tobias Bohwalli, released under the [New BSD License][4]
 [3]: https://github.com/futhr/spree-unifaun/issues
 [4]: https://github.com/futhr/spree-unifaun/tree/master/LICENSE
 [5]: http://www.localeapp.com/projects/4937
+[6]: https://github.com/thoughtbot/guides
