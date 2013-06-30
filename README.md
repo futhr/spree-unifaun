@@ -72,7 +72,7 @@ Starting point:
 * Clone your repo
 * Run `bundle install`
 * Run `bundle exec rake test_app` to create the test application in `spec/test_app`
-* Make your changes
+* Make your changes and follow this [Style Guide][6]
 * Ensure specs pass by running `bundle exec rspec spec`
 * Submit your pull request
 
