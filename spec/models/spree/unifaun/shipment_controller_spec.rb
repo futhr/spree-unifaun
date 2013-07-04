@@ -1,29 +1,29 @@
 require 'spec_helper'
 describe Spree::Unifaun::ShipmentController do
-	
-	let(:unifaun_shipment_controller) { Spree::Unifaun::ShipmentController.new(create(:shipment)) }
+  
+  let(:unifaun_shipment_controller) { Spree::Unifaun::ShipmentController.new(create(:shipment)) }
 
   context "#post" do       
-  	it "notifies Unifaun of a new Spree::Shipment" do
-  		pending "TODO"
-  	end
-	end
+    it "notifies Unifaun of a new Spree::Shipment" do
+      pending "TODO"
+    end
+  end
 
   context "#get_status" do 
-  	it "gets the status of a Spree::Shipment from Unifaun" do
-		 pending "TODO"
-		end
-	end
+    it "gets the status of a Spree::Shipment from Unifaun" do
+     pending "TODO"
+    end
+  end
   
   context "#to_xml" do 
-  	it "has root element with the encoding ISO-8859-1" do
+    it "has root element with the encoding ISO-8859-1" do
       unifaun_shipment_controller.to_xml.should match(/encoding=\"ISO-8859-1\"/)
-  	end
+    end
 
     describe "<receiver> element: " do
-    	it "should be present" do
+      it "should be present" do
         unifaun_shipment_controller.to_xml.should have_xml("/data/receiver")
-    	end
+      end
 
       it "has the address's id as rcvid" do
         address_id = unifaun_shipment_controller.address.id
@@ -74,9 +74,9 @@ describe Spree::Unifaun::ShipmentController do
     end
 
     describe "<shipment> element: " do
-    	it "should be present" do
+      it "should be present" do
         unifaun_shipment_controller.to_xml.should have_xml '/data/shipment'
-    	end
+      end
 
       it "has the order's number as orderno" do
         order_no = unifaun_shipment_controller.order.number
@@ -138,7 +138,7 @@ describe Spree::Unifaun::ShipmentController do
       end
 
     end
-  end	
+  end 
 
 
 end
