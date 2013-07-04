@@ -1,16 +1,13 @@
 if ENV['COVERAGE']
   require 'simplecov'
-  require 'coveralls'
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-    SimpleCov::Formatter::HTMLFormatter,
-    Coveralls::SimpleCov::Formatter
+    SimpleCov::Formatter::HTMLFormatter
   ]
   SimpleCov.start do
     add_filter '/spec/'
     add_group 'Controllers', 'app/controllers'
     add_group 'Overrides', 'app/overrides'
     add_group 'Models', 'app/models'
-    add_group 'Views', 'app/views'
     add_group 'Libraries', 'lib'
   end
 end
@@ -20,8 +17,6 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
-require 'capybara/rspec'
-require 'capybara/webkit'
 require 'webmock/rspec'
 require 'ffaker'
 require 'database_cleaner'
@@ -33,32 +28,49 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
 
-FactoryGirl.find_definitions
-
 RSpec.configure do |config|
-  config.include Capybara::DSL, type: :request
   config.include Spree::TestingSupport::ControllerRequests
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
-
-  config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :feature
 
   config.mock_with :rspec
   config.use_transactional_fixtures = false
   config.fail_fast = ENV['FAIL_FAST'] || false
 
   config.before do
-    if example.metadata[:js]
-      DatabaseCleaner.strategy = :truncation
-    else
-      DatabaseCleaner.strategy = :transaction
-    end
+    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
   end
 
   config.after do
     DatabaseCleaner.clean
   end
+end
 
-  Capybara.javascript_driver = :webkit
+
+require 'nokogiri'
+RSpec::Matchers.define :have_xml do |xpath, text|
+  match do |body|
+    doc = Nokogiri::XML::Document.parse(body)
+    nodes = doc.xpath(xpath)
+    nodes.empty?.should be_false
+    if text
+      nodes.each do |node|
+        node.content.should == text
+      end
+    end
+    true
+  end
+ 
+  failure_message_for_should do |body|
+    "expected to find xml tag #{xpath} in:\n#{body}"
+  end
+ 
+  failure_message_for_should_not do |response|
+    "expected not to find xml tag #{xpath} in:\n#{body}"
+  end
+ 
+  description do
+    "have xml tag #{xpath}"
+  end
 end
