@@ -9,12 +9,7 @@ end
 
 group :test do
   gem 'vcr'
-  gem 'rspec'
-  gem 'webmock'
   gem 'rspec-rails'
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'shoulda-matchers'
   gem 'factory_girl'
   gem 'ffaker'
   gem 'simplecov'
@@ -23,7 +18,6 @@ group :test do
   gem 'i18n-spec'
   gem 'guard-rspec'
   gem 'launchy'
-  gem 'coveralls', require: false
 end
 
 gem 'spree', github: 'spree/spree'
