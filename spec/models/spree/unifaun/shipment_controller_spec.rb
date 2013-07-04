@@ -126,9 +126,13 @@ describe Spree::Unifaun::ShipmentController do
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container/val[@n="copies"]', "1"
         end
 
-        it "has weight as 4 when there are two items in the order of weight 2kg each" do
-          pending "WIP"
-          unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container/val[@n="weight"]', "4"
+        it "has weight as 5 when there are two items in the order of weight 2kg and 3kg" do
+          order = create(:order)
+          create(:line_item, quantity: 1, variant: create(:base_variant, weight: 2), order: order)
+          create(:line_item, quantity: 1, variant: create(:base_variant, weight: 3), order: order)
+          order.line_items.reload  
+          unifaun_shipment_controller = Spree::Unifaun::ShipmentController.new(create(:shipment, order: order))
+          unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container/val[@n="weight"]', "5.0"
         end
 
       end

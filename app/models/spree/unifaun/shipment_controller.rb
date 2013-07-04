@@ -44,9 +44,6 @@ class Spree::Unifaun::ShipmentController
 					xml.container(type: container_type){
 						xml.val container_copies,   n: :copies
 						xml.val container_weight,   n: :weight 
-						#xml.val container_length,   n: :length
-						#xml.val container_width,    n: :width 
-						#xml.val container_height,   n: :height
 					}
 				}
 			}
@@ -93,18 +90,5 @@ class Spree::Unifaun::ShipmentController
 	def container_weight ## Variant#weight
 		@shipment.to_package.weight
 	end
-
-	#def container_length ## Variant#length
-	#	return nil if @order.line_items.any?{|item| item.weight.nil? }
-	#end
-	#
-	#def container_width  ## Variant#width
-	#	10
-	#end
-	#
-	#def container_height ## Variant#height
-	#	15
-	#end
-
 	
 end
