@@ -89,6 +89,5 @@ class Spree::Unifaun::ShipmentController
 
   def container_weight ## Variant#weight
     @shipment.to_package.weight
-  end
-  
+  end  
 end

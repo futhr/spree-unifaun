@@ -70,7 +70,6 @@ describe Spree::Unifaun::ShipmentController do
         unifaun_shipment_controller.address.phone = "031-725 35 00"
         unifaun_shipment_controller.to_xml.should have_xml('/data/receiver/val[@n="phone"]', "031-725 35 00")
       end
-
     end
 
     describe "<shipment> element: " do
@@ -101,7 +100,6 @@ describe Spree::Unifaun::ShipmentController do
       end
 
       describe "<service> element: " do
-
         it "should be present" do
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/service'
         end
@@ -110,7 +108,6 @@ describe Spree::Unifaun::ShipmentController do
           Spree::Unifaun::Config.preferred_service = "APL"
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/service[@srvid="APL"]'
         end
-
       end
 
       describe "<container> element: " do
@@ -134,11 +131,7 @@ describe Spree::Unifaun::ShipmentController do
           unifaun_shipment_controller = Spree::Unifaun::ShipmentController.new(create(:shipment, order: order))
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container/val[@n="weight"]', "5.0"
         end
-
       end
-
     end
   end 
-
-
 end
