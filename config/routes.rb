@@ -5,5 +5,8 @@ Spree::Core::Engine.routes.append do
     #   get :related, on: :member
     #   resources :relations
     # end
+    resources :order do 
+      resources :shipments
+    end
   end
 end
