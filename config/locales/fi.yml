@@ -1,5 +1,7 @@
 ---
 fi:
   spree:
-    spree_unifaun:
+    unifaun:
       transport_label: "Liikenne etiketti"
+      post_to_unifaun: "Lähetä Unifaun"
+      get_unifaun_status: "Hanki tilan Unifaun"

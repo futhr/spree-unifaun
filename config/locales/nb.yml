@@ -1,5 +1,7 @@
 ---
 nb:
   spree:
-    spree_unifaun:
+    unifaun:
       transport_label: "Transportetikett"
+      post_to_unifaun: "Send til Unifaun"
+      get_unifaun_status: "Få status fra Unifaun"

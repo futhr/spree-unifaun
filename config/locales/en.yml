@@ -1,5 +1,7 @@
 ---
 en:
   spree:
-    spree_unifaun:
+    unifaun:
       transport_label: "Transport label"
+      post_to_unifaun: "Post To Unifaun"
+      get_unifaun_status: "Get Unifaun Status"
