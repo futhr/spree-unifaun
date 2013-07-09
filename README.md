@@ -87,6 +87,6 @@ Copyright (c) 2013 Tobias Bohwalli, released under the [New BSD License][4]
 [1]: http://en.unifaun.se
 [2]: http://www.fsf.org/licensing/essays/free-sw.html
 [3]: https://github.com/futhr/spree-unifaun/issues
-[4]: https://github.com/futhr/spree-unifaun/tree/master/LICENSE
+[4]: https://github.com/futhr/spree-unifaun/tree/master/LICENSE.md
 [5]: http://www.localeapp.com/projects/4937
 [6]: https://github.com/thoughtbot/guides
