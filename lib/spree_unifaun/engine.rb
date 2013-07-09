@@ -12,7 +12,7 @@ module SpreeUnifaun
     isolate_namespace Spree
     engine_name 'spree_unifaun'
 
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/models/spree/unifaun)
 
     config.generators do |g|
       g.test_framework :rspec

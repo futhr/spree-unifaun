@@ -35,5 +35,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'fuubar', '>= 0.0.1'
   s.add_development_dependency 'i18n-spec', '~> 0.4.0'
   s.add_development_dependency 'capybara', '~> 2.1.0'
+  s.add_development_dependency 'shoulda-matchers', '~> 2.2'
   s.add_development_dependency 'pry-rails'
 end
