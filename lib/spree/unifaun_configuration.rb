@@ -1,7 +1,7 @@
 module Spree
   class UnifaunConfiguration < Preferences::Configuration
     # Service 'Unifaun Online' or 'Pacsoft Online'
-    preference :service, :string, default: 'Unifaun Online'
+    preference :service, :string, default: 'Pacsoft Online'
 
     # Login for service provider
     preference :user_id, :integer, default: 0
