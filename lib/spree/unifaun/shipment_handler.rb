@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-class Spree::Unifaun::ShipmentController
+class Spree::Unifaun::ShipmentHandler
   include HTTParty
   base_uri 'api.unifaun.com'
   format :xml
