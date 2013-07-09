@@ -20,7 +20,7 @@ describe "Order shipments" do
   end
 
   context "edit page" do
-    it "hhas a button for posting to Unifaun" do
+    it "has a button for posting to Unifaun" do
       visit spree.edit_admin_order_shipment_path(order, shipment)
       page.should have_link "Post To Unifaun"
     end
