@@ -2,8 +2,8 @@
   <thead>
     <tr data-hook="shipments_header">
       <th><%= Spree.t(:number) %></th>
-      <th><%= Spree.t(:shipping_method) %> </th>
-      <th><%= Spree.t(:state) %> </th>
+      <th><%= Spree.t(:shipping_method) %></th>
+      <th><%= Spree.t(:state) %></th>
       <th><%= Spree.t(:stock_location) %></th>
     </tr>
   </thead>
@@ -11,10 +11,9 @@
   <tbody>
     <% @shipments.each do |shipment| %>
       <td><%= link_to shipment.number, edit_admin_order_shipment_path(@order, shipment) %></td>
-      <td><%= shipment.shipping_method.name.capitalize  %></td>
-      <td><span class="state <%= shipment.state %>"><%= shipment.state %></span> </td>
-      <td><%= shipment.stock_location.name.capitalize %> </td>
-    <% end  %>
+      <td><%= shipment.shipping_method.name.capitalize %></td>
+      <td><span class="state <%= shipment.state %>"><%= shipment.state %></span></td>
+      <td><%= shipment.stock_location.name.capitalize %></td>
+    <% end %>
   </tbody>
-
 </table>

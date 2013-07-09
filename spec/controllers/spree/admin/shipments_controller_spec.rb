@@ -1,21 +1,18 @@
 require 'spec_helper'
 
 describe Spree::Admin::ShipmentsController do
+  stub_authorization!
 
-  let(:order){ create(:order) }
-  let(:user){ order.user }
+  let(:order) { create(:order) }
+  let(:user)  { order.user }
+
+  before { controller.stub spree_current_user: user }
 
   context "#index" do
-    stub_authorization!
-    
-    before do
-      controller.stub :spree_current_user => user
-    end
-
-    it "should set shipments" do
+    it "set shipments" do
       shipments = [create(:shipment, order: order), create(:shipment, order: order)]
       spree_get :index, order_id: order.number
-      assigns[:shipments].should eq(shipments) 
+      assigns[:shipments].should eq(shipments)
     end
   end
 

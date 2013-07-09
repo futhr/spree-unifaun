@@ -1,26 +1,26 @@
 require 'spec_helper'
+
 describe Spree::Unifaun::ShipmentController do
-  
   let(:unifaun_shipment_controller) { Spree::Unifaun::ShipmentController.new(create(:shipment)) }
 
-  context "#post" do       
+  context "#post" do
     it "notifies Unifaun of a new Spree::Shipment" do
       pending "TODO"
     end
   end
 
-  context "#get_status" do 
+  context "#get_status" do
     it "gets the status of a Spree::Shipment from Unifaun" do
-     pending "TODO"
+      pending "TODO"
     end
   end
-  
-  context "#to_xml" do 
+
+  describe "#to_xml" do
     it "has root element with the encoding ISO-8859-1" do
       unifaun_shipment_controller.to_xml.should match(/encoding=\"ISO-8859-1\"/)
     end
 
-    describe "<receiver> element: " do
+    context "<receiver> element: " do
       it "should be present" do
         unifaun_shipment_controller.to_xml.should have_xml("/data/receiver")
       end
@@ -38,7 +38,7 @@ describe Spree::Unifaun::ShipmentController do
 
       it "has address1 as 5, 7th avenue" do
         unifaun_shipment_controller.address.address1 = "5, 7th avenue"
-        unifaun_shipment_controller.to_xml.should have_xml('/data/receiver/val[@n="address1"]', "5, 7th avenue")        
+        unifaun_shipment_controller.to_xml.should have_xml('/data/receiver/val[@n="address1"]', "5, 7th avenue")
       end
 
       it "has address2 as Kaserntorget" do
@@ -52,7 +52,7 @@ describe Spree::Unifaun::ShipmentController do
       end
 
       it "has city as BERLIN" do
-        unifaun_shipment_controller.address.city = "BERLIN"  
+        unifaun_shipment_controller.address.city = "BERLIN"
         unifaun_shipment_controller.to_xml.should have_xml('/data/receiver/val[@n="city"]', "BERLIN")
       end
 
@@ -84,22 +84,22 @@ describe Spree::Unifaun::ShipmentController do
 
       it "has *from* as 123 - the sender's quick id" do
         Spree::Unifaun::Config.preferred_quick_id_for_sender=123
-        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="from"]', 
+        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="from"]',
           "123"
       end
 
       it "has *to* as the ship-address id" do
-        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="to"]', 
+        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="to"]',
           unifaun_shipment_controller.address.id.to_s
       end
 
       it "has *shipdate* as 2013-07-01 when the shipments is created-at 2013-07-01" do
         unifaun_shipment_controller.shipment.created_at = DateTime.parse("2013-07-01")
-        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="shipdate"]', 
+        unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/val[@n="shipdate"]',
           "2013-07-01"
       end
 
-      describe "<service> element: " do
+      context "<service> element: " do
         it "should be present" do
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/service'
         end
@@ -110,7 +110,7 @@ describe Spree::Unifaun::ShipmentController do
         end
       end
 
-      describe "<container> element: " do
+      context "<container> element: " do
         it "should be present" do
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container'
         end
@@ -127,11 +127,11 @@ describe Spree::Unifaun::ShipmentController do
           order = create(:order)
           create(:line_item, quantity: 1, variant: create(:base_variant, weight: 2), order: order)
           create(:line_item, quantity: 1, variant: create(:base_variant, weight: 3), order: order)
-          order.line_items.reload  
+          order.line_items.reload
           unifaun_shipment_controller = Spree::Unifaun::ShipmentController.new(create(:shipment, order: order))
           unifaun_shipment_controller.to_xml.should have_xml '/data/shipment/container/val[@n="weight"]', "5.0"
         end
       end
     end
-  end 
+  end
 end

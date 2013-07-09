@@ -10,14 +10,17 @@ end
 group :test do
   gem 'vcr'
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'factory_girl'
   gem 'ffaker'
+  gem 'sqlite3'
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'fuubar'
   gem 'i18n-spec'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'coveralls', require: false
 end
 
 gem 'spree', github: 'spree/spree'

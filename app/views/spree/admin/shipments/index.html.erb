@@ -1,15 +1,15 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Shipments' } %>
+<%= render 'spree/admin/shared/order_tabs', current: 'Shipments' %>
 
-<% content_for :page_actions do %>  
-  <li><%= button_link_to Spree.t(:back_to_order_details), edit_admin_order_path(@order), :icon => 'icon-arrow-left' %></li>
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t(:back_to_order_details), edit_admin_order_path(@order), icon: 'icon-arrow-left' %></li>
 <% end %>
 
 <% content_for :page_title do %>
-  <i class="icon-arrow-right"></i> <%= Spree.t(:shipments) %>
+  <i class="icon-arrow-right"></i><%= Spree.t(:shipments) %>
 <% end %>
 
 <% if @shipments.any? %>
-  <%= render :partial => 'list', :locals => { :shipments => @shipments } %>
+  <%= render 'list', shipments: @shipments %>
 <% else %>
   <div class="alpha twelve columns no-objects-found"><%= Spree.t(:order_has_no_shipments) %></div>
 <% end %>

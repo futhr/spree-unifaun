@@ -1,7 +1,9 @@
 if ENV['COVERAGE']
   require 'simplecov'
+  require 'coveralls'
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-    SimpleCov::Formatter::HTMLFormatter
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
   ]
   SimpleCov.start do
     add_filter '/spec/'
@@ -17,6 +19,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'webmock/rspec'
 require 'ffaker'
 require 'database_cleaner'
@@ -27,8 +30,10 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
+require 'spree/testing_support/capybara_ext'
 
 RSpec.configure do |config|
+  config.include Capybara::DSL, type: :request
   config.include Spree::TestingSupport::ControllerRequests
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
@@ -47,7 +52,6 @@ RSpec.configure do |config|
   end
 end
 
-
 require 'nokogiri'
 RSpec::Matchers.define :have_xml do |xpath, text|
   match do |body|
@@ -61,15 +65,15 @@ RSpec::Matchers.define :have_xml do |xpath, text|
     end
     true
   end
- 
+
   failure_message_for_should do |body|
     "expected to find xml tag #{xpath} in:\n#{body}"
   end
- 
+
   failure_message_for_should_not do |response|
     "expected not to find xml tag #{xpath} in:\n#{body}"
   end
- 
+
   description do
     "have xml tag #{xpath}"
   end
