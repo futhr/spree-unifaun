@@ -10,6 +10,7 @@ end
 group :test do
   gem 'vcr'
   gem 'rspec-rails'
+  gem 'rspec'
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'factory_girl'
