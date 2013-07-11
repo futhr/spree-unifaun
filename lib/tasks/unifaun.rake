@@ -1,18 +1,27 @@
 # coding: utf-8
 require 'csv'
 
-namespace :unfaun do
+namespace :unifaun do
   desc 'Import Unifaun partners'
   task import_partners: :environment do
-    csv_file_path = Dir.glob(File.join(File.dirname(__FILE__), '../../db/data/partners.csv'))
+    csv_file = File.expand_path("../../../db/data/partners.csv", __FILE__)
+    Spree::Unifaun::Carrier.import_carriers(csv_file) 
+  end
 
-    CSV.foreach(csv_file_path) do |row|
-      row = Spree::UnifaunPartner.
-        where(code: row[0]).
-        first_or_create(code: row[0], partner: row[1]).
-        save
-
-      puts "#{row[1]} added!"
+  desc "Import Unifaun carrier-services for each carrier"
+  task import_carrier_services: :environment do
+    errors = []
+    Spree::Unifaun::Carrier.all.each do |carrier|
+      begin
+        carrier.import_carrier_services(carrier.carrier_services_file)
+      rescue => e
+        errors << e.message
+      end
+    end
+    unless errors.empty?
+      puts "Done with errors:"
+      errors.map{|e| puts e}
     end
   end
+
 end
