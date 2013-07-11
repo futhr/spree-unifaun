@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Spree::Unifaun::CarrierService do
   context "relation" do
-    it { should have_one :carrier }
-    it { should have_one :carrier_method }
+    it { should belong_to :carrier }
+    #it { should have_one :carrier_method }
   end
 
   context "validation" do
