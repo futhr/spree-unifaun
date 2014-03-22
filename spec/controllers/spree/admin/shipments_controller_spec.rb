@@ -8,14 +8,11 @@ describe Spree::Admin::ShipmentsController do
 
   before { controller.stub spree_current_user: user }
 
-  context "#index" do
-    it "set shipments" do
+  context '#index' do
+    it 'set shipments' do
       shipments = [create(:shipment, order: order), create(:shipment, order: order)]
       spree_get :index, order_id: order.number
-      assigns[:shipments].should eq(shipments)
+      expect(assigns[:shipments]).to eq shipments
     end
-  end
-
-  context "#edit" do
   end
 end

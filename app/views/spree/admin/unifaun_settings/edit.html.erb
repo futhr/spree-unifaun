@@ -1,0 +1,56 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:settings, scope: :unifaun) %>
+<% end %>
+
+<%= form_tag(admin_unifaun_settings_path, method: :put) do %>
+  <fieldset class="no-border-top">
+    <div data-hook="admin_unifaun_method_form_fields">
+      <div class="row">
+        <div class="alpha six columns" data-hook="unifaun">
+          <fieldset class="no-border-bottom">
+            <legend align="center"><%= Spree.t(:general) %></legend>
+            <div class="field">
+              <label><%= Spree.t(:service, scope: [:unifaun, :preferences]) %></label><br>
+              <%= text_field_tag('preferences[service]', Spree::Unifaun::Config[:service], class: 'fullwidth') %>
+              <%= select_tag('preferences[service]', options_for_select(Spree::Unifaun::Config.services, Spree::Unifaun::Config[:service]), class: 'fullwidth') %>
+            </div>
+            <div class="field">
+              <label><%= Spree.t(:login_name) %></label><br>
+              <%= text_field_tag('preferences[user_id]', Spree::Unifaun::Config[:user_id], class: 'fullwidth') %>
+            </div>
+            <div class="field">
+              <label><%= Spree.t(:password) %></label><br>
+              <%= password_field_tag('preferences[password]', Spree::Unifaun::Config[:password], class: 'fullwidth') %>
+            </div>
+            <div class="field">
+              <label><%= Spree.t(:quick_id_for_sender, scope: [:unifaun, :preferences]) %></label><br>
+              <%= text_field_tag('preferences[quick_id_for_sender]', Spree::Unifaun::Config[:quick_id_for_sender], class: 'fullwidth') %>
+            </div>
+            <div class="field">
+              <label><%= Spree.t(:weight_multiplyer, scope: [:unifaun, :preferences]) %></label><br>
+              <%= text_field_tag('preferences[weight_multiplyer]', Spree::Unifaun::Config[:weight_multiplyer], class: 'fullwidth') %>
+            </div>
+            <div class="field">
+              <label><%= Spree.t(:track_and_trace_language, scope: [:unifaun, :preferences]) %></label><br>
+              <%= select_tag('preferences[track_and_trace_language]', options_for_select(Spree::Unifaun::Config.track_and_trace_languages, Spree::Unifaun::Config[:track_and_trace_language]), class: 'fullwidth') %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'icon-refresh' %>
+      </div>
+
+    </div>
+  </fieldset>
+<% end %>
+
+<script>
+  // (function ($) {
+  //   $('#track_and_trace_language').select2();
+  //   $('#service').select2();
+  // })(jQuery);
+</script>

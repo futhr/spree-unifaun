@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
@@ -7,12 +6,12 @@ require 'spree_unifaun/version'
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'spree_unifaun'
-  s.version      = SpreeUnifaun::VERSION
+  s.version      = Spree::Unifaun.version
   s.summary      = 'Unifaun Packsoft ERPConnect for Spree Commerce'
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'
 
-  s.authors      = ['Tobias Bohwalli', 'Abhishek Yadav']
+  s.author       = 'Tobias Bohwalli'
   s.email        = 'hi@futhr.io'
   s.homepage     = 'https://github.com/futhr/spree-unifaun'
   s.license      = %q{BSD-3}
@@ -22,19 +21,30 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_runtime_dependency 'spree', '~> 2.0'
+  s.add_runtime_dependency 'spree_backend', '~> 2.3.0.beta'
+  s.add_runtime_dependency 'httparty', '~> 0.13.0'
+  s.add_runtime_dependency 'excon', '~> 0.32.0'
 
-  s.add_development_dependency 'vcr', '~> 2.5.0'
-  s.add_development_dependency 'webmock', '= 1.10'
-  s.add_development_dependency 'rspec-rails', '~> 2.13'
-  s.add_development_dependency 'factory_girl', '~> 4.2'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'sqlite3', '~> 1.3.7'
+  s.add_development_dependency 'sinatra'
+  s.add_development_dependency 'vcr', '~> 2.8.0'
+  s.add_development_dependency 'webmock', '~> 1.17.4'
+  s.add_development_dependency 'rspec-rails', '~> 2.14'
+  s.add_development_dependency 'factory_girl', '~> 4.4'
+  s.add_development_dependency 'capybara', '~> 2.2.1'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'poltergeist', '~> 1.5.0'
+  s.add_development_dependency 'shoulda-matchers', '~> 2.5'
+  s.add_development_dependency 'rspec' # for i18n-spec or it flip out
+  s.add_development_dependency 'i18n-spec', '~> 0.4.1'
+  s.add_development_dependency 'sqlite3', '~> 1.3.8'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'fuubar', '>= 0.0.1'
-  s.add_development_dependency 'i18n-spec', '~> 0.4.0'
-  s.add_development_dependency 'capybara', '~> 2.1.0'
-  s.add_development_dependency 'shoulda-matchers', '~> 2.2'
+  s.add_development_dependency 'database_cleaner', '~> 1.2.0'
+  s.add_development_dependency 'fuubar', '~> 1.3.2'
+  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
+  s.add_development_dependency 'sass-rails', '~> 4.0.0'
+  s.add_development_dependency 'ffaker'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'coveralls'
   s.add_development_dependency 'pry-rails'
 end

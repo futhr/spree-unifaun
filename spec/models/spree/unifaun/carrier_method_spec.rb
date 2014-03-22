@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 describe Spree::Unifaun::CarrierMethod do
-  context "relation" do
-    it { pending "ToDo"; should belong_to :carrier_service }
+
+  context 'relation' do
+    xit { should belong_to :carrier_service }
   end
 
-  context "validation" do
-    it { pending "ToDo"; should validate_presence_of :code }
-    it { pending "ToDo"; should validate_presence_of :name }
+  context 'validation' do
+    xit { should validate_presence_of :code }
+    xit { should validate_presence_of :name }
   end
 end

@@ -1,4 +1,4 @@
-Copyright (c) 2013 Tobias Bohwalli
+Copyright (c) 2014 Tobias Bohwalli and contributors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

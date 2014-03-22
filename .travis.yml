@@ -3,21 +3,16 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - export DISPLAY=:99.0
   - bundle exec rake test_app
-env:
-  - COVERAGE=true
 script:
   - bundle exec rspec spec
-notifications:
-  email:
-    - hi@futhr.io
-  irc:
-    use_notice: true
-    skip_join: true
-    channels:
-      - "irc.freenode.org#futhr"
 rvm:
   - 1.9.3
   - 2.0.0
-branches:
-  only:
-    - master
+  - 2.1.0
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/9f8616cc6c52b79f8ad5
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
