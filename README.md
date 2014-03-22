@@ -2,7 +2,7 @@
 
 # Spree Unifaun Packsoft ERPConnect
 
-[![Build Status](https://api.travis-ci.org/futhr/spree-unifaun.png?branch=master)](https://travis-ci.org/futhr/spree-unifaun)
+[![Build Status](https://travis-ci.org/futhr/spree-unifaun.svg?branch=master)](https://travis-ci.org/futhr/spree-unifaun)
 [![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 [![Code Climate](https://codeclimate.com/github/futhr/spree-unifaun.png)](https://codeclimate.com/github/futhr/spree-unifaun)
