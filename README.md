@@ -6,6 +6,7 @@
 [![Dependency Status](https://gemnasium.com/futhr/spree-unifaun.png)](https://gemnasium.com/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 [![Code Climate](https://codeclimate.com/github/futhr/spree-unifaun.png)](https://codeclimate.com/github/futhr/spree-unifaun)
+[![Inline docs](http://inch-pages.github.io/github/futhr/spree-unifaun.png)](http://inch-pages.github.io/github/futhr/spree-unifaun)
 [![Gitter chat](https://badges.gitter.im/futhr/spree-unifaun.png)](https://gitter.im/futhr/spree-unifaun)
 
 :octocat: **NOTE THAT THIS GEM IS IN WIP MODE!**
