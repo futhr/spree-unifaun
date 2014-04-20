@@ -1,6 +1,6 @@
 module Spree
   module Unifaun
-    # Returns the version of the currently loaded SpreePosten as a <tt>Gem::Version</tt>
+    # Returns the version of the currently loaded Spree::Unifaun as a <tt>Gem::Version</tt>
     def self.version
       Gem::Version.new VERSION::STRING
     end
