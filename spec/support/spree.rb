@@ -5,7 +5,6 @@ require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/capybara_ext'
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::ControllerRequests
   config.include Spree::TestingSupport::UrlHelpers
 end

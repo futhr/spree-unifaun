@@ -4,8 +4,16 @@ require 'sinatra/base'
 
 class FakeUnifaun < Sinatra::Base
 
-  get '/' do
-    xml_response 200, 'shipment.xml'
+  # -> post order.xml
+  # <- get response created.xml
+  #
+  # Errors:
+  #
+  # 403 (logon failure).
+  # 500 (reading problems) order.xml contains syntax errors.
+  #
+  post '/ufoweb/order' do
+    xml_response 200, 'created.xml'
   end
 
   private
@@ -13,6 +21,6 @@ class FakeUnifaun < Sinatra::Base
   def xml_response(response_code, file_name)
     content_type :xml
     status response_code
-    File.open(File.dirname(__FILE__) + '/fixtures/' + file_name).read
+    File.open(Rails.root + '/spec/fixtures/' + file_name).read
   end
 end
