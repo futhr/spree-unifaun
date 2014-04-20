@@ -1,10 +1,11 @@
-class CreateUnifaunPartners < ActiveRecord::Migration
+class CreateSpreeUnifaunPartners < ActiveRecord::Migration
   def up
     create_table :spree_unifaun_partners do |t|
       t.string :code
       t.string :partner
     end
-    # add_index :spree_unifaun_partners, :code, unique: true
+
+    add_index :spree_unifaun_partners, :code, unique: true
   end
 
   def down
