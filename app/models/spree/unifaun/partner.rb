@@ -1,5 +1,4 @@
 class Spree::Unifaun::Partner < ActiveRecord::Base
-  self.table_name = :spree_unifaun_partner
-
+  self.table_name = :spree_unifaun_partners
   validates :code, :partner, presence: true
 end
