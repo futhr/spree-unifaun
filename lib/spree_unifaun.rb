@@ -18,7 +18,7 @@ module Spree
     end
 
     def configured?
-      Config.key.present?
+      Config.service.present?
     end
 
     def merge_vars(model)

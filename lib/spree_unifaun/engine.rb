@@ -11,9 +11,9 @@ module SpreeUnifaun
     end
 
     initializer 'spree.unifaun.ensure' do
-      #if !Rails.env.test? && Spree::Unifaun.configured?
-        Spree::Unifaun.log 'All setup!!'
-      #end
+      if !Rails.env.test? && Spree::Unifaun.configured?
+        Spree::Unifaun.log 'All setup.'
+      end
     end
 
     def self.activate
