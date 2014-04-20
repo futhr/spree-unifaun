@@ -8,10 +8,10 @@ class Spree::Unifaun::Carrier < ActiveRecord::Base
   def self.import_carriers(csv_file_path)
     require 'csv'
     CSV.foreach(csv_file_path, col_sep: ';') do |row|
-      Spree::Unifaun::Carrier.
-        where(code: row[0]).
-        first_or_create(code: row[0], name: row[1]).
-        save
+      Spree::Unifaun::Carrier
+        .where(code: row[0])
+        .first_or_create(code: row[0], name: row[1])
+        .save
     end
   end
 

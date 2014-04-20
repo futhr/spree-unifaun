@@ -7,7 +7,7 @@ describe Spree::Unifaun::CarrierMethod do
   end
 
   context 'validation' do
-    xit { should validate_presence_of :code }
-    xit { should validate_presence_of :name }
+    it { should validate_presence_of :code }
+    it { should validate_presence_of :name }
   end
 end

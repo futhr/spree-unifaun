@@ -16,12 +16,12 @@ module Spree
       end
 
       def post
-        options = {body: self.to_xml}
+        options = { body: self.to_xml }
         self.class.post('/shipment', options)
       end
 
       def get_status
-        options = {orderno: @order.number}
+        options = { orderno: @order.number }
         self.class.get('/tracker', options)
       end
 
@@ -53,7 +53,7 @@ module Spree
       end
 
       def address_name
-        @address.firstname + ' ' + @address.lastname
+        [@address.firstname, @address.lastname].compact.join(' ')
       end
 
       def order_email
@@ -61,7 +61,7 @@ module Spree
       end
 
       def country_iso
-        @address.country.iso_name
+        @address.country.try(:iso_name)
       end
 
       def shipment_from
@@ -72,7 +72,10 @@ module Spree
         @address.id
       end
 
-      def shipment_shipdate # Defines shipment date. Printed on shipping documents. The default value is the current date.
+      # Defines shipment date.
+      # Printed on shipping documents.
+      # The default value is the current date.
+      def shipment_shipdate
         @shipment.created_at.to_date
       end
 
@@ -80,11 +83,11 @@ module Spree
         Spree::Unifaun::Config.preferred_service
       end
 
-      def container_type ##
+      def container_type
         'parcel'
       end
 
-      def container_copies ##
+      def container_copies
         1
       end
 

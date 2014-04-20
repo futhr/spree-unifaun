@@ -2,22 +2,22 @@ require 'spec_helper'
 
 describe Spree::Unifaun::ShipmentHandler do
 
-  subject { described_class.new(create(:shipment)) }
+  subject { described_class.new create(:shipment) }
 
-  context '#post' do
+  context '.post' do
     it 'notifies Unifaun of a new Spree::Shipment' do
     end
   end
 
-  context '#get_status' do
+  context '.get_status' do
     it 'gets the status of a Spree::Shipment from Unifaun' do
     end
   end
 
-  describe '#to_xml' do
+  describe '.to_xml' do
 
     it 'has root element with the encoding ISO-8859-1' do
-      expect(subject.to_xml).to match(/encoding=\"ISO-8859-1\"/)
+      expect(subject.to_xml).to match /encoding=\"ISO-8859-1\"/
     end
 
     context '<receiver> element:' do
@@ -75,7 +75,7 @@ describe Spree::Unifaun::ShipmentHandler do
 
     describe '<shipment> element: ' do
 
-      it 'should be present' do
+      it 'is present' do
         expect(subject.to_xml).to have_xml '/data/shipment'
       end
 
@@ -100,7 +100,7 @@ describe Spree::Unifaun::ShipmentHandler do
       end
 
       context '<service> element: ' do
-        it 'should be present' do
+        it 'is present' do
           expect(subject.to_xml).to have_xml '/data/shipment/service'
         end
 
@@ -112,7 +112,7 @@ describe Spree::Unifaun::ShipmentHandler do
 
       context '<container> element: ' do
 
-        it 'should be present' do
+        it 'is present' do
           expect(subject.to_xml).to have_xml '/data/shipment/container'
         end
 
@@ -129,7 +129,7 @@ describe Spree::Unifaun::ShipmentHandler do
           create(:line_item, quantity: 1, variant: create(:base_variant, weight: 2), order: order)
           create(:line_item, quantity: 1, variant: create(:base_variant, weight: 3), order: order)
           order.line_items.reload
-          subject = described_class.new(create(:shipment, order: order))
+          subject = described_class.new create(:shipment, order: order)
           expect(subject.to_xml).to have_xml '/data/shipment/container/val[@n="weight"]', '5.0'
         end
       end

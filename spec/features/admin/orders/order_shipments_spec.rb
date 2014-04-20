@@ -4,14 +4,14 @@ feature 'Admin Order Shipments', :js do
   stub_authorization!
 
   given(:shipment) { create(:shipment, number: 'H100') }
-  given(:order) { shipment.order }
+  given(:order)    { shipment.order }
 
   context '#index' do
 
     scenario 'say "Order has no shipments" when order has no shipments' do
       order.shipments.clear
       visit spree.admin_order_shipments_path(order)
-      expect(page).to have_text 'Order Has No Shipments'.upcase
+      expect(page).to have_text_like 'Order Has No Shipments'
     end
 
     scenario 'list existing shipments' do
