@@ -14,6 +14,9 @@ SimpleCov.start do
   add_group  'Libraries', 'lib'
 end
 
+require 'dotenv'
+Dotenv.load
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../dummy/config/environment.rb', __FILE__)

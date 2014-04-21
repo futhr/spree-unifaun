@@ -10,6 +10,6 @@ pkg
 spec/dummy
 .rvmrc
 .localeapp
-.vcr.log
-.ruby-version
 vcr.log
+.ruby-version
+.env
