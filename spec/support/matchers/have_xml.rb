@@ -4,7 +4,7 @@ RSpec::Matchers.define :have_xml do |xpath, text|
   match do |body|
     doc = Nokogiri::XML::Document.parse(body)
     nodes = doc.xpath(xpath)
-    expect(nodes.empty?).to be_false
+    expect(nodes.empty?).to be(false)
     if text
       nodes.each do |node|
         expect(node.content).to eq text

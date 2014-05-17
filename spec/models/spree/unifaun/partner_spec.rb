@@ -1,7 +1,7 @@
 describe Spree::Unifaun::Partner do
 
   context 'validation' do
-    it { should validate_presence_of :code }
-    it { should validate_presence_of :partner }
+    it { is_expected.to validate_presence_of :code }
+    it { is_expected.to validate_presence_of :partner }
   end
 end

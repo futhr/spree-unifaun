@@ -1,12 +1,12 @@
 describe Spree::Unifaun::CarrierService do
 
   context 'relation' do
-    it { should belong_to :carrier }
-    xit { should have_one :carrier_method }
+    it { is_expected.to belong_to :carrier }
+    xit { is_expected.to have_one :carrier_method }
   end
 
   context 'validation' do
-    it { should validate_presence_of :code }
-    it { should validate_presence_of :service }
+    it { is_expected.to validate_presence_of :code }
+    it { is_expected.to validate_presence_of :service }
   end
 end

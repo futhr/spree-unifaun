@@ -4,12 +4,12 @@ describe Spree::Unifaun::Carrier do
   let(:carrier)  { described_class.create(code: 'DHL', name: 'DHL-Express') }
 
   context 'relation' do
-    it { should have_many :carrier_services }
+    it { is_expected.to have_many :carrier_services }
   end
 
   context 'validation' do
-    it { should validate_presence_of :code }
-    it { should validate_presence_of :name }
+    it { is_expected.to validate_presence_of :code }
+    it { is_expected.to validate_presence_of :name }
   end
 
   context '.import_carriers' do
