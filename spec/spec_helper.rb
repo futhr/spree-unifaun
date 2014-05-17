@@ -32,13 +32,12 @@ RSpec.configure do |config|
 
   config.fail_fast = false
   config.filter_run focus: true
-  config.filter_run_excluding slow: true
   config.run_all_when_everything_filtered = true
 
   # config.profile_examples = 10
 
   config.expect_with :rspec do |expectations|
-    # expectations.syntax = :expect
+    expectations.syntax = :expect
   end
 
   config.mock_with :rspec do |mocks|
@@ -50,4 +49,4 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
 end
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |file| require file }
