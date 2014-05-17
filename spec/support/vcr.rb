@@ -9,10 +9,10 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.ignore_localhost = true
 
-  # Put "<UNIFAUN_API_SECRET_ID>" in place of the actual API key in
+  # Put "<UNIFAUN_CONSUMER_ID>" in place of the actual API key in
   # our cassettes so we don't have to commit to source control.
-  config.filter_sensitive_data('<UNIFAUN_API_SECRET_ID>') do
-    #Spree::Unifaun::Config.consumer_id
+  config.filter_sensitive_data('<UNIFAUN_CONSUMER_ID>') do
+    Spree::Unifaun::Config.consumer_id
   end
 
   # Log vcr events
