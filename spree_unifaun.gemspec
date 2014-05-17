@@ -34,12 +34,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver', '>= 2.41.0'
   s.add_development_dependency 'poltergeist', '~> 1.5.0'
   s.add_development_dependency 'shoulda-matchers', '~> 2.5'
-  s.add_development_dependency 'rspec', '~> 2.14' # for i18n-spec or it flip out
+  s.add_development_dependency 'rspec', '~> 2.14'
   s.add_development_dependency 'i18n-spec', '~> 0.4.1'
   s.add_development_dependency 'sqlite3', '>= 1.3.9'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
   s.add_development_dependency 'database_cleaner', '>= 1.2.0'
-  s.add_development_dependency 'fuubar', '>= 1.3.2'
   s.add_development_dependency 'coffee-rails', '~> 4.0.0'
   s.add_development_dependency 'sass-rails', '~> 4.0.0'
   s.add_development_dependency 'ffaker', '>= 1.24.0'

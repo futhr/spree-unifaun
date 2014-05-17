@@ -1,3 +1,2 @@
 --color
---require fuubar
---format Fuubar
+-r spec_helper
