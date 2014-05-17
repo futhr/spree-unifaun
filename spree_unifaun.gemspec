@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'poltergeist', '~> 1.5.0'
   s.add_development_dependency 'shoulda-matchers', '~> 2.5'
   s.add_development_dependency 'rspec', '~> 2.14'
-  s.add_development_dependency 'i18n-spec', '~> 0.4.1'
+  s.add_development_dependency 'i18n-spec', '>= 0.4.1'
   s.add_development_dependency 'sqlite3', '>= 1.3.9'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
   s.add_development_dependency 'database_cleaner', '>= 1.2.0'
