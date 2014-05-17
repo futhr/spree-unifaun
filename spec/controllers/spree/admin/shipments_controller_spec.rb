@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Spree::Admin::ShipmentsController do
   stub_authorization!
 

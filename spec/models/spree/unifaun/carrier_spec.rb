@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Spree::Unifaun::Carrier do
 
   let(:csv_file) { '/tmp/unifaun.test.csv' }

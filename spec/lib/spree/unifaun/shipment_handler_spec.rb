@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Spree::Unifaun::ShipmentHandler do
 
   subject { described_class.new create(:shipment) }

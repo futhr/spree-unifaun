@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'Admin Order Details', :js do
   stub_authorization!
 

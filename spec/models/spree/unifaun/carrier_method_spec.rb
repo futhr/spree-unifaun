@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Spree::Unifaun::CarrierMethod do
 
   context 'relation' do

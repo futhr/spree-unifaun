@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'Admin Settings for Unifaun', :js do
 
   stub_authorization!
