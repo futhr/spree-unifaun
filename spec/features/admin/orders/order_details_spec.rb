@@ -13,7 +13,7 @@ feature 'Admin Order Details', :js do
     background { visit spree.edit_admin_order_path(order) }
 
     scenario 'has a link to shipments page' do
-      pending 'probably broken hook or bad created product'
+      skip 'probably broken hook or bad created product'
       expect(page).to have_link 'Shipments'
     end
   end
