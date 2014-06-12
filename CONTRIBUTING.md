@@ -29,5 +29,5 @@ Starting point:
 
 [1]: http://www.fsf.org/licensing/essays/free-sw.html
 [2]: https://github.com/futhr/spree-unifaun/issues
-[3]: http://www.localeapp.com/projects/4937
+[3]: https://github.com/futhr/spree-unifaun/blob/master/config/locales
 [4]: https://gitter.im/futhr/spree-unifaun
