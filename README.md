@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/futhr/spree-unifaun.png?branch=master)](https://travis-ci.org/futhr/spree-unifaun)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-unifaun/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-unifaun)
 [![Code Climate](https://codeclimate.com/github/futhr/spree-unifaun.png?branch=master)](https://codeclimate.com/github/futhr/spree-unifaun)
-[![Inline docs](http://inch-pages.github.io/github/futhr/spree-unifaun.png)](http://inch-pages.github.io/github/futhr/spree-unifaun)
+[![Inline docs](http://inch-ci.org/github/futhr/spree-unifaun.png)](http://inch-ci.org/github/futhr/spree-unifaun)
 
 :octocat: **NOTE THAT THIS GEM IS IN WIP MODE!**
 
