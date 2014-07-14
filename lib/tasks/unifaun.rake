@@ -19,7 +19,7 @@ namespace :unifaun do
     end
     unless errors.empty?
       puts 'Done with errors:'
-      errors.map{ |e| puts e }
+      errors.map { |e| puts e }
     end
   end
 end

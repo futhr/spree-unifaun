@@ -1,5 +1,5 @@
 lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
+$LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
 require 'spree_unifaun/version'
 
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.author       = 'Tobias Bohwalli'
   s.email        = 'hi@futhr.io'
   s.homepage     = 'https://github.com/futhr/spree-unifaun'
-  s.license      = %q{BSD-3}
+  s.license      = 'BSD-3'
 
   s.files        = `git ls-files`.split("\n")
   s.test_files   = `git ls-files -- spec/*`.split("\n")

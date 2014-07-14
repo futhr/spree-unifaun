@@ -2,10 +2,12 @@ feature 'Admin Order Details', :js do
   stub_authorization!
 
   given(:order) do
-    create(:order,
+    create(
+      :order,
       state: 'complete',
       completed_at: '2011-02-01 12:36:15',
-      number: 'R100')
+      number: 'R100'
+    )
   end
 
   context 'edit order page' do

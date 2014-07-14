@@ -1,7 +1,8 @@
 module OneLinerExpectSyntax
-  def is_expected
+  def expected
     expect(subject)
   end
+  alias_method :is_expected, :expected
 end
 
 RSpec.configure do |config|

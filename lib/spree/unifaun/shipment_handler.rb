@@ -16,11 +16,11 @@ module Spree
       end
 
       def post
-        options = { body: self.to_xml }
+        options = { body: to_xml }
         self.class.post('/shipment', options)
       end
 
-      def get_status
+      def status
         options = { orderno: @order.number }
         self.class.get('/tracker', options)
       end

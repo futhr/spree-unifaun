@@ -7,7 +7,7 @@ describe Spree::Unifaun::ShipmentHandler do
     end
   end
 
-  context '.get_status' do
+  context '.status' do
     it 'gets the status of a Spree::Shipment from Unifaun' do
     end
   end
@@ -15,12 +15,12 @@ describe Spree::Unifaun::ShipmentHandler do
   describe '.to_xml' do
 
     it 'has root element with the encoding ISO-8859-1' do
-      expect(subject.to_xml).to match /encoding=\"ISO-8859-1\"/
+      expect(subject.to_xml).to match(/encoding=\"ISO-8859-1\"/)
     end
 
     context '<receiver> element:' do
 
-      it 'should be present' do
+      it 'is present' do
         expect(subject.to_xml).to have_xml '/data/receiver'
       end
 
@@ -88,8 +88,7 @@ describe Spree::Unifaun::ShipmentHandler do
       end
 
       it 'has *to* as the ship-address id' do
-        expect(subject.to_xml).to have_xml '/data/shipment/val[@n="to"]',
-          subject.address.id.to_s
+        expect(subject.to_xml).to have_xml '/data/shipment/val[@n="to"]', subject.address.id.to_s
       end
 
       it 'has *shipdate* as 2013-07-01 when the shipments is created-at 2013-07-01' do
@@ -97,7 +96,7 @@ describe Spree::Unifaun::ShipmentHandler do
         expect(subject.to_xml).to have_xml '/data/shipment/val[@n="shipdate"]', '2013-07-01'
       end
 
-      context '<service> element: ' do
+      context '<service> element:' do
         it 'is present' do
           expect(subject.to_xml).to have_xml '/data/shipment/service'
         end
@@ -108,7 +107,7 @@ describe Spree::Unifaun::ShipmentHandler do
         end
       end
 
-      context '<container> element: ' do
+      context '<container> element:' do
 
         it 'is present' do
           expect(subject.to_xml).to have_xml '/data/shipment/container'
@@ -124,8 +123,10 @@ describe Spree::Unifaun::ShipmentHandler do
 
         it 'has weight as 5 when there are two items in the order of weight 2kg and 3kg' do
           order = create(:order)
-          create(:line_item, quantity: 1, variant: create(:base_variant, weight: 2), order: order)
-          create(:line_item, quantity: 1, variant: create(:base_variant, weight: 3), order: order)
+          variant_one = create(:base_variant, weight: 2)
+          variant_two = create(:base_variant, weight: 3)
+          create(:line_item, quantity: 1, variant: variant_one, order: order)
+          create(:line_item, quantity: 1, variant: variant_two, order: order)
           order.line_items.reload
           subject = described_class.new create(:shipment, order: order)
           expect(subject.to_xml).to have_xml '/data/shipment/container/val[@n="weight"]', '5.0'

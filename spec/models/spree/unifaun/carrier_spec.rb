@@ -24,7 +24,7 @@ describe Spree::Unifaun::Carrier do
 
   context '#import_carrier_services' do
     it 'import carrier-services data from the given csv file' do
-      csv_data   = ['Code;Service','ATSCSTD;ATS Cargo'].join("\n")
+      csv_data   = ['Code;Service', 'ATSCSTD;ATS Cargo'].join("\n")
       File.write(csv_file, csv_data)
       carrier.import_carrier_services(csv_file)
       expect(carrier.carrier_services.first.code).to eq 'ATSCSTD'

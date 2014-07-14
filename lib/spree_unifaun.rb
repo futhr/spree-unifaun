@@ -7,14 +7,14 @@ require 'excon'
 
 module Spree
   module Unifaun
-    extend self
+    module_function
 
     def config(&block)
       yield(Spree::Unifaun::Config)
     end
 
     def log(message)
-      Rails.logger.info "spree_unifaun: #{message}"
+      Rails.logger.info "spree_unifaun: #{message}" if message
     end
 
     def configured?
