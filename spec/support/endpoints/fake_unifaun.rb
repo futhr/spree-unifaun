@@ -16,11 +16,19 @@ class FakeUnifaun < Sinatra::Base
     xml_response 200, 'created.xml'
   end
 
+  post '/shipment' do
+    xml_response 200, 'order.xml'
+  end
+
+  get '/tracker' do
+    xml_response 200, 'shipment.xml'
+  end
+
   private
 
   def xml_response(response_code, file_name)
     content_type :xml
     status response_code
-    File.open(Rails.root + '/spec/fixtures/' + file_name).read
+    File.open(Rails.root.join('spec', 'fixtures', file_name)).read
   end
 end

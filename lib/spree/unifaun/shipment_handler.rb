@@ -7,7 +7,7 @@ module Spree
       base_uri 'api.unifaun.com'
       format :xml
 
-      attr_reader :shipment, :order, :address
+      attr_accessor :shipment, :order, :address
 
       def initialize(shipment)
         @shipment = shipment
@@ -68,7 +68,7 @@ module Spree
         Spree::Unifaun::Config.preferred_quick_id_for_sender
       end
 
-      def shipment_to # ShipAddress#id
+      def shipment_to ## ShipAddress#id
         @address.id
       end
 
@@ -92,7 +92,7 @@ module Spree
       end
 
       def container_weight ## Variant#weight
-        @shipment.to_package.weight
+        @shipment.to_package.weight.to_f
       end
     end
   end

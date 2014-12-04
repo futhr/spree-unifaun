@@ -1,14 +1,20 @@
 RSpec.describe Spree::Unifaun::ShipmentHandler do
 
-  subject { described_class.new create(:shipment) }
+  let(:address) { build(:address) }
+
+  let!(:shipment) do
+    create(:shipment, address: address)
+  end
+
+  subject { described_class.new shipment }
 
   context '.post' do
-    it 'notifies Unifaun of a new Spree::Shipment' do
+    skip 'notifies Unifaun of a new Spree::Shipment' do
     end
   end
 
   context '.status' do
-    it 'gets the status of a Spree::Shipment from Unifaun' do
+    skip 'gets the status of a Spree::Shipment from Unifaun' do
     end
   end
 
@@ -31,7 +37,7 @@ RSpec.describe Spree::Unifaun::ShipmentHandler do
 
       it 'has name as Unifaun AB' do
         subject.address.firstname = 'Unifaun'
-        subject.address.lastname = 'AB'
+        subject.address.lastname  = 'AB'
         expect(subject.to_xml).to have_xml '/data/receiver/val[@n="name"]', 'Unifaun AB'
       end
 
@@ -128,7 +134,7 @@ RSpec.describe Spree::Unifaun::ShipmentHandler do
           create(:line_item, quantity: 1, variant: variant_one, order: order)
           create(:line_item, quantity: 1, variant: variant_two, order: order)
           order.line_items.reload
-          subject = described_class.new create(:shipment, order: order)
+          subject = described_class.new create(:shipment, order: order, address: address)
           expect(subject.to_xml).to have_xml '/data/shipment/container/val[@n="weight"]', '5.0'
         end
       end
