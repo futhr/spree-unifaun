@@ -24,20 +24,4 @@ RSpec.configure do |config|
   config.before(:all) do
     WebMock.allow_net_connect!
   end
-
-  config.around(:each, :vcr) do |example|
-    name = example.metadata[:full_description]
-      .gsub(described_class.to_s, '')
-      .gsub(/(^\W+|\W+$)/, '')
-      .split(/\s+/, 2)
-      .join('/')
-      .gsub(/[^\w\/]+/, '_')
-      .insert(0, '/')
-      .insert(0, described_class.to_s.downcase.underscore)
-
-    # BUG: It do not parse / (slash) into folders :(
-    VCR.use_cassette(name) do
-      example.call
-    end
-  end
 end
