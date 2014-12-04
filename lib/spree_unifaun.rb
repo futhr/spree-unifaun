@@ -9,7 +9,7 @@ module Spree
   module Unifaun
     module_function
 
-    def config(&block)
+    def config(*)
       yield(Spree::Unifaun::Config)
     end
 
