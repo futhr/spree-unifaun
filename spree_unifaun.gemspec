@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.license      = 'BSD-3'
 
   s.files        = `git ls-files`.split("\n")
+  s.files       -= ['unifaun.png']
   s.test_files   = `git ls-files -- spec/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
