@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version      = Spree::Unifaun.version
   s.summary      = 'Unifaun Packsoft ERPConnect for Spree Commerce'
   s.description  = s.summary
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.1.0'
 
   s.author       = 'Tobias Bohwalli'
   s.email        = 'hi@futhr.io'
