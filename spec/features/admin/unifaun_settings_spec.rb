@@ -1,4 +1,4 @@
-feature 'Admin Settings for Unifaun', :js do
+RSpec.feature 'Admin Settings for Unifaun', :js do
 
   stub_authorization!
 

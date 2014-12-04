@@ -1,7 +1,7 @@
-feature 'Admin Order Details', :js do
+RSpec.feature 'Admin Order Details', :js do
   stub_authorization!
 
-  given(:order) do
+  given!(:order) do
     create(
       :order,
       state: 'complete',
@@ -10,7 +10,7 @@ feature 'Admin Order Details', :js do
     )
   end
 
-  context 'edit order page' do
+  context 'edits the order page' do
 
     background { visit spree.edit_admin_order_path(order) }
 

@@ -13,11 +13,11 @@ RSpec::Matchers.define :have_xml do |xpath, text|
     true
   end
 
-  failure_message_for_should do |body|
+  failure_message do |body|
     "expected to find xml tag #{xpath} in:\n#{body}"
   end
 
-  failure_message_for_should_not do |body|
+  failure_message_when_negated do |body|
     "expected not to find xml tag #{xpath} in:\n#{body}"
   end
 

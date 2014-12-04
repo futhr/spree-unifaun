@@ -1,4 +1,4 @@
-describe Spree::Unifaun::ShipmentHandler do
+RSpec.describe Spree::Unifaun::ShipmentHandler do
 
   subject { described_class.new create(:shipment) }
 

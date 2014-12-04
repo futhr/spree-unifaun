@@ -1,4 +1,4 @@
-feature 'Admin Order Shipments', :js do
+RSpec.feature 'Admin Order Shipments', :js do
   stub_authorization!
 
   given(:shipment) { create(:shipment, number: 'H100') }
@@ -6,13 +6,13 @@ feature 'Admin Order Shipments', :js do
 
   context '#index' do
 
-    scenario 'say "Order has no shipments" when order has no shipments' do
+    scenario 'says "Order has no shipments" when order has no shipments' do
       order.shipments.clear
       visit spree.admin_order_shipments_path(order)
       expect(page).to have_text_like 'Order Has No Shipments'
     end
 
-    scenario 'list existing shipments' do
+    scenario 'lists existing shipments' do
       visit spree.admin_order_shipments_path(order)
       expect(page).to have_text 'H100'
     end
