@@ -4,7 +4,8 @@ module Spree
 
       def update
         settings = Spree::UnifaunSetting.new
-        params.each do |name, value|
+        preferences = params && params.key?(:preferences) ? params.delete(:preferences) : params
+        preferences.each do |name, value|
           next unless settings.has_preference? name
           settings[name] = value
         end
