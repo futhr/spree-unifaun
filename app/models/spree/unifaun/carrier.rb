@@ -2,18 +2,14 @@ module Spree
   module Unifaun
     class Carrier < ActiveRecord::Base
       self.table_name = :spree_unifaun_carriers
-
       has_many :carrier_services, class_name: 'Spree::Unifaun::CarrierService'
-
       validates :code, :name, presence: true
 
       class << self
         def import_carriers(csv_file_path)
           require 'csv'
           CSV.foreach(csv_file_path, col_sep: ';') do |row|
-            Spree::Unifaun::Carrier.where(code: row[0])
-                                   .first_or_create(code: row[0], name: row[1])
-                                   .save
+            Spree::Unifaun::Carrier.where(code: row[0]).first_or_create(code: row[0], name: row[1]).save
           end
         end
       end
