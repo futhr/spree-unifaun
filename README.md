@@ -39,7 +39,7 @@ See corresponding [guidelines][3]
 
 ## License
 
-Copyright (c) 2013-2014 [Tobias Bohwalli][4], and other [contributors][5], released under the [New BSD License][6]
+Copyright (c) 2013-2015 [Tobias Bohwalli][4], and other [contributors][5], released under the [New BSD License][6]
 
 [1]: https://github.com/futhr/spree-unifaun/wiki
 [2]: http://en.unifaun.se
