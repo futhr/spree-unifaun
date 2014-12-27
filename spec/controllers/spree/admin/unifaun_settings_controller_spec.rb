@@ -31,12 +31,12 @@ RSpec.describe Spree::Admin::UnifaunSettingsController, type: :controller do
 
       it 'sets preferred_user_id to 123' do
         spree_put :update, preferences: { user_id: 123 }
-        expect(subject.preferred_user_id).to be(123)
+        expect(subject.preferred_user_id).to eq('123')
       end
 
       it 'sets preferred_password to 123' do
         spree_put :update, preferences: { password: 123 }
-        expect(subject.preferred_password).to be(123)
+        expect(subject.preferred_password).to eq('123')
       end
 
       it 'sets preferred_quick_id_for_sender to 1' do
@@ -46,7 +46,7 @@ RSpec.describe Spree::Admin::UnifaunSettingsController, type: :controller do
 
       it 'sets preferred_weight_multiplyer to 1.5' do
         spree_put :update, preferences: { weight_multiplyer: 1.5 }
-        expect(subject.preferred_weight_multiplyer).to be(1.5)
+        expect(subject.preferred_weight_multiplyer).to eq('1.5')
       end
 
       it 'sets preferred_track_and_trace_language to "Swedish"' do
